@@ -37,6 +37,12 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To allow us to post images for you</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We want to bring interesting stories to you</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to bring interesting stories to you</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We want to bring interesting stories to you</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

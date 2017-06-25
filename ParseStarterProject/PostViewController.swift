@@ -2,35 +2,34 @@
 //  PostViewController.swift
 //  ParseStarterProject-Swift
 //
-//  Created by Matthew Oh on 6/3/17.
+//  Created by Sewon Park on 6/25/17.
 //  Copyright © 2017 Parse. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
     var activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet var imageToPost: UIImageView!
+    @IBOutlet weak var postImage: UIImageView!
     
-    @IBAction func chooseAnImage(_ sender: Any) {
-    
+    @IBAction func chooseimageButton(_ sender: Any) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.allowsEditing = false
-        
         self.present(imagePicker, animated: true, completion: nil)
-    
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            imageToPost.image = image
+            postImage.image = image
             
         }
         
@@ -51,10 +50,12 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.present(alert, animated: true, completion: nil)
         
     }
+
     
-    @IBOutlet var messageTextField: UITextField!
     
-    @IBAction func postStory(_ sender: Any) {
+    @IBOutlet weak var storyTextField: UITextField!
+    
+    @IBAction func saveButton(_ sender: Any) {
         
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x:0, y:0, width: 50, height: 50))
         activityIndicator.center = self.view.center
@@ -66,10 +67,10 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         
         let post = PFObject(className: "Posts")
         
-        post["message"] = messageTextField.text
+        post["message"] = storyTextField.text
         post["userid"] = PFUser.current()?.objectId!
         
-        let imageData = UIImagePNGRepresentation(imageToPost.image!)
+        let imageData = UIImagePNGRepresentation(postImage.image!)
         
         let imageFile = PFFile(name: "image.png", data: imageData!)
         
@@ -87,16 +88,15 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             } else {
                 
                 self.createAlert(title: "Story Posted!", message: "Your story has been shared successfully")
-                self.messageTextField.text = ""
-                self.imageToPost.image = UIImage(named: "My-Story-Book-Maker-Icon.png")
+                self.storyTextField.text = ""
+                self.postImage.image = UIImage(named: "My-Story-Book-Maker-Icon.png")
                 
             }
             
         }
-        
+
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

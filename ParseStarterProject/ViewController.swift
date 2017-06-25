@@ -12,13 +12,11 @@ import Parse
 
 class ViewController: UIViewController {
     
-    var signupMode = true
-    
     var activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     func createAlert(title: String, message: String) {
         
@@ -27,14 +25,14 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             
             self.dismiss(animated: true, completion: nil)
-        
+            
         }))
         
         self.present(alert, animated: true, completion: nil)
         
     }
     
-    @IBAction func signupButton(_ sender: Any) {
+    @IBAction func loginButton(_ sender: UIButton) {
         
         if emailTextField.text == "" || passwordTextField.text == "" { //Checking if both email and password are provided
             
@@ -50,42 +48,8 @@ class ViewController: UIViewController {
             activityIndicator.startAnimating()
             UIApplication.shared.beginIgnoringInteractionEvents()
             
-            if signupMode { //Sign Up
                 
-                let user = PFUser()
-                
-                user.username = emailTextField.text
-                user.email = emailTextField.text
-                user.password = passwordTextField.text
-                
-                user.signUpInBackground(block: { (success, error) in
-                    
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                    
-                    if error != nil {
-                        
-                        var displayErrorMessage = "Please try again later."
-                        
-                        let error = error as NSError?
-                        
-                        if let errorMessage = error?.userInfo["error"] as? String {
-                            
-                            displayErrorMessage = errorMessage
-                        }
-                        
-                        self.createAlert(title: "Signup Error", message: displayErrorMessage)
-                        
-                    } else {
-                        
-                        print("User signed up")
-                        
-                        self.performSegue(withIdentifier: "showUserTable", sender: self)
-                        
-                    }
-                    
-                })
-            } else { //Login mode
+                //Login mode
                 
                 PFUser.logInWithUsername(inBackground: emailTextField.text!, password: passwordTextField.text!, block: { (user, error) in
                     
@@ -109,31 +73,24 @@ class ViewController: UIViewController {
                         
                         print("User logged in")
                         
-                        self.performSegue(withIdentifier: "showUserTable", sender: self)
-                        
+                        self.performSegue(withIdentifier: "showNewsFeed", sender: self)
+                    
                     }
                 })
-                
             }
-            
         }
-        
-    }
     
-    @IBOutlet var signupButton: UIButton!
     
-    @IBOutlet var messageLabel: UILabel!
     
-    @IBOutlet var loginButton: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         if PFUser.current() != nil {
             
             let loggedUser = (PFUser.current()?.username)!
-
-            performSegue(withIdentifier: "showUserTable", sender: self)
+            
+            performSegue(withIdentifier: "showNewsFeed", sender: self)
             print("\(String(describing: loggedUser)) is currently logged in")
             
         } else {
@@ -143,33 +100,16 @@ class ViewController: UIViewController {
         }
         
         self.navigationController?.navigationBar.isHidden = true
-        
-        
+
     }
+
     
     
-    
-    
-    @IBAction func loginButton(_ sender: Any) {
+    @IBAction func registerButton(_ sender: UIButton) {
         
-        if signupMode {
-            //Change to login mode
-            
-            signupButton.setTitle("Log In", for:[])
-            loginButton.setTitle("Sign Up", for:[])
-            messageLabel.text = "Don't have an account?"
-            signupMode = false
-            
-        } else {
-            
-            signupButton.setTitle("Sign Up", for:[])
-            loginButton.setTitle("Log In", for:[])
-            messageLabel.text = "Already have an account?"
-            signupMode = true
-        }
-        
+        performSegue(withIdentifier: "showregistration", sender: self)
+
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
