@@ -10,10 +10,10 @@ import UIKit
 import Parse
 
 class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     var activityIndicator = UIActivityIndicatorView()
     let picker = UIPickerView()
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -35,8 +35,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+         
+            //self.dismiss(animated: true, completion: nil)
+            //This code was causing the dismissal of RegisterViewController and returning back to ViewController
             
-            self.dismiss(animated: true, completion: nil)
+            print("Alert dismissed")
             
         }))
         
@@ -70,7 +73,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if emailTextField.text == "" || passwordTextField.text == "" || profileTextField.text == "" || occupationTextField.text == "" { //Checking if both email and password and occupation are provided
             
             createAlert(title: "Error in form", message: "Please fill in all fields above.")
-
+            
             
         } else {
             
@@ -127,24 +130,24 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         //binding textfield to picker
         occupationTextField.inputView = picker
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
