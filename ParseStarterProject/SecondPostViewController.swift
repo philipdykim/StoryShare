@@ -1,22 +1,26 @@
 //
-//  PostViewController.swift
+//  SecondPostViewController.swift
 //  ParseStarterProject-Swift
 //
-//  Created by Sewon Park on 6/25/17.
+//  Created by Sewon Park on 7/2/17.
 //  Copyright © 2017 Parse. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class PostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class SecondPostViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    var storytitle = String()
+    var firstimage = UIImage()
+    var firstmessage = String()
+    
     
     var activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var postImage: UIImageView!
     
     @IBAction func chooseimageButton(_ sender: Any) {
         //pick image based on saved images in camera
@@ -25,7 +29,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.allowsEditing = false
         self.present(imagePicker, animated: true, completion: nil)
-
+        
     }
     
     
@@ -53,7 +57,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.present(alert, animated: true, completion: nil)
         
     }
-
+    
     
     
     @IBOutlet weak var storyTextview: UITextView!
@@ -62,21 +66,30 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     @IBAction func nextpage(_ sender: Any) {
         
         //perform segue, but need to add in error check (if textfield or image field is blank)
-            
-            performSegue(withIdentifier: "topagetwo", sender: self)
+        
+        performSegue(withIdentifier: "topagethree", sender: self)
+    }
+    
+    
+    @IBAction func prevpage(_ sender: Any) {
+        performSegue(withIdentifier: "backpageone", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondcontroller = segue.destination as! SecondPostViewController
-        secondcontroller.firstmessage = storyTextview.text
-        secondcontroller.firstimage = postImage.image!
-        secondcontroller.storytitle = titleText.text!
+        let thirdcontroller = segue.destination as! ThirdPostViewController
+        thirdcontroller.firstmessage = firstmessage
+        thirdcontroller.firstimage = firstimage
+        thirdcontroller.secondmessage = storyTextview.text
+        thirdcontroller.secondimage = postImage.image!
+        thirdcontroller.storytitle = storytitle
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = storytitle
         
-
         // Do any additional setup after loading the view.
     }
 
