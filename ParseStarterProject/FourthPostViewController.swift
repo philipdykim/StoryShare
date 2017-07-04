@@ -89,6 +89,11 @@ class FourthPostViewController: UIViewController, UINavigationControllerDelegate
         post["message4"] = storyTextview.text
         post["username"] = PFUser.current()?.objectId!
         
+        //Added by Matt on 7/2/2017
+        let randomString = String.random() //random key generation of post ID
+        post["postid"] = randomString //appending the post ID
+        //Added by Matt on 7/2/2017
+        
         let imageData = UIImagePNGRepresentation(firstimage)
         let imageFile = PFFile(name: "image.png", data: imageData!)
         post["imageFile"] = imageFile
@@ -140,7 +145,12 @@ class FourthPostViewController: UIViewController, UINavigationControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-
+    //Hide keyboard when a user touches outside textfield
+    //Added by Matt on 7/2/2017
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) //This will hide the keyboard
+    }
+    //Added by Matt on 7/2/2017
     /*
     // MARK: - Navigation
 
@@ -152,3 +162,20 @@ class FourthPostViewController: UIViewController, UINavigationControllerDelegate
     */
 
 }
+
+// extension code for random string generation
+//Added by Matt on 7/2/2017
+extension String {
+    
+    static func random(length: Int = 20) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.characters.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+}
+//Added by Matt on 7/2/2017

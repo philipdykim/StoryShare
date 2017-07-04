@@ -27,8 +27,6 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81D462C21F000F5B00EB0CF3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D462C11F000F5B00EB0CF3 /* RegisterViewController.swift */; };
-		81D462C41F00402800EB0CF3 /* FeedTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D462C31F00402800EB0CF3 /* FeedTableTableViewController.swift */; };
-		81D6FA271EFF1C56005F93A8 /* ic_add_a_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 81D6FA261EFF1C56005F93A8 /* ic_add_a_photo.png */; };
 		81EE4DC11F007DB7005F208C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4DC01F007DB7005F208C /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +55,6 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81D462C11F000F5B00EB0CF3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		81D462C31F00402800EB0CF3 /* FeedTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableTableViewController.swift; sourceTree = "<group>"; };
-		81D6FA261EFF1C56005F93A8 /* ic_add_a_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_add_a_photo.png; path = "../../../../Downloads/res 2/drawable-xhdpi/ic_add_a_photo.png"; sourceTree = "<group>"; };
 		81EE4DC01F007DB7005F208C /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,13 +111,11 @@
 				811843AF1F0346F90067CAE0 /* ProfileTableViewController.swift */,
 				811843B11F0348A70067CAE0 /* ProfileTableViewCell.swift */,
 				811843B31F0348BE0067CAE0 /* StoryTableViewCell.swift */,
-				81D462C31F00402800EB0CF3 /* FeedTableTableViewController.swift */,
 				81D462C11F000F5B00EB0CF3 /* RegisterViewController.swift */,
 				81EE4DC01F007DB7005F208C /* PostViewController.swift */,
 				8158C3011F0997370047DD94 /* SecondPostViewController.swift */,
 				8158C3031F09A70D0047DD94 /* ThirdPostViewController.swift */,
 				8158C3051F09A7210047DD94 /* FourthPostViewController.swift */,
-				81D6FA261EFF1C56005F93A8 /* ic_add_a_photo.png */,
 				22E1ED6B1EE369F60076D612 /* My-Story-Book-Maker-Icon.png */,
 				22E1ED691EE369E30076D612 /* Share-Your-Story-icon.png */,
 				22E1ED671EE367740076D612 /* tumblr_nsqdfzN0bX1rlg6guo5_250.jpg */,
@@ -214,7 +208,6 @@
 			files = (
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
 				22E1ED6C1EE369F60076D612 /* My-Story-Book-Maker-Icon.png in Resources */,
-				81D6FA271EFF1C56005F93A8 /* ic_add_a_photo.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				22E1ED681EE367740076D612 /* tumblr_nsqdfzN0bX1rlg6guo5_250.jpg in Resources */,
 				22E1ED6A1EE369E30076D612 /* Share-Your-Story-icon.png in Resources */,
@@ -231,7 +224,6 @@
 				811843B01F0346F90067CAE0 /* ProfileTableViewController.swift in Sources */,
 				811843B21F0348A70067CAE0 /* ProfileTableViewCell.swift in Sources */,
 				8158C3021F0997370047DD94 /* SecondPostViewController.swift in Sources */,
-				81D462C41F00402800EB0CF3 /* FeedTableTableViewController.swift in Sources */,
 				81D462C21F000F5B00EB0CF3 /* RegisterViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,

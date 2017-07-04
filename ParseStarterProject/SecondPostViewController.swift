@@ -98,7 +98,12 @@ class SecondPostViewController: UIViewController, UINavigationControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-
+    //Hide keyboard when a user touches outside textfield
+    //Added by Matt on 7/2/2017
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) //This will hide the keyboard
+    }
+    //Added by Matt on 7/2/2017
     /*
     // MARK: - Navigation
 
