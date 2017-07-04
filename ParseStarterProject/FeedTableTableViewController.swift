@@ -16,6 +16,7 @@ class FeedTableTableViewController: UITableViewController {
     var users = [String:String]()
     var messages = [String]()
     var usernames = [String]()
+    var postTitle = [String]()
     var postID = [String]()
     var imageFiles = [PFFile]()
     
@@ -138,10 +139,11 @@ class FeedTableTableViewController: UITableViewController {
                             self.messages.append(post["message"] as! String)
                             
                             self.imageFiles.append(object["imageFile"] as! PFFile) //ImageFile is just a pointer here (haven't downloaded the image yet
-                            
                             self.usernames.append(self.users[post["username"] as! String]!)
                             
                             self.postID.append(post["postid"] as! String)
+                            
+                            self.postTitle.append(post["title"] as! String)
                             
                             self.tableView.reloadData()
                             
@@ -192,7 +194,7 @@ class FeedTableTableViewController: UITableViewController {
         
         cell.storySummaryLabel.text = messages[indexPath.row]
         
-        cell.titleLabel.text = usernames[indexPath.row]
+        cell.titleLabel.text = postTitle[indexPath.row]
         
         cell.postIDLabel.text = postID[indexPath.row]
         
