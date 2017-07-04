@@ -14,6 +14,7 @@ import Parse
 class FavoritesViewController:  UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var FavoritesCollectionView: UICollectionView!
+    
     @IBOutlet weak var usernameLabel: UILabel!
     
     var messages = [String]()
