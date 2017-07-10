@@ -14,14 +14,13 @@
 		22E1ED681EE367740076D612 /* tumblr_nsqdfzN0bX1rlg6guo5_250.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22E1ED671EE367740076D612 /* tumblr_nsqdfzN0bX1rlg6guo5_250.jpg */; };
 		22E1ED6A1EE369E30076D612 /* Share-Your-Story-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E1ED691EE369E30076D612 /* Share-Your-Story-icon.png */; };
 		22E1ED6C1EE369F60076D612 /* My-Story-Book-Maker-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E1ED6B1EE369F60076D612 /* My-Story-Book-Maker-Icon.png */; };
-		811843B01F0346F90067CAE0 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811843AF1F0346F90067CAE0 /* ProfileTableViewController.swift */; };
-		811843B21F0348A70067CAE0 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811843B11F0348A70067CAE0 /* ProfileTableViewCell.swift */; };
-		811843B41F0348BE0067CAE0 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811843B31F0348BE0067CAE0 /* StoryTableViewCell.swift */; };
 		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		8158C3021F0997370047DD94 /* SecondPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8158C3011F0997370047DD94 /* SecondPostViewController.swift */; };
 		8158C3041F09A70E0047DD94 /* ThirdPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8158C3031F09A70D0047DD94 /* ThirdPostViewController.swift */; };
 		8158C3061F09A7210047DD94 /* FourthPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8158C3051F09A7210047DD94 /* FourthPostViewController.swift */; };
+		816EC62E1F12765100F53882 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EC62D1F12765100F53882 /* ProfileCollectionViewCell.swift */; };
+		816EC6301F12774200F53882 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EC62F1F12774200F53882 /* ProfileViewController.swift */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* ViewController.swift */; };
 		81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA816B1A49DB6800E65899 /* Bolts.framework */; };
@@ -42,15 +41,14 @@
 		22E1ED671EE367740076D612 /* tumblr_nsqdfzN0bX1rlg6guo5_250.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tumblr_nsqdfzN0bX1rlg6guo5_250.jpg; sourceTree = "<group>"; };
 		22E1ED691EE369E30076D612 /* Share-Your-Story-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share-Your-Story-icon.png"; sourceTree = "<group>"; };
 		22E1ED6B1EE369F60076D612 /* My-Story-Book-Maker-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My-Story-Book-Maker-Icon.png"; sourceTree = "<group>"; };
-		811843AF1F0346F90067CAE0 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
-		811843B11F0348A70067CAE0 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		811843B31F0348BE0067CAE0 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8158C3011F0997370047DD94 /* SecondPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondPostViewController.swift; sourceTree = "<group>"; };
 		8158C3031F09A70D0047DD94 /* ThirdPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPostViewController.swift; sourceTree = "<group>"; };
 		8158C3051F09A7210047DD94 /* FourthPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthPostViewController.swift; sourceTree = "<group>"; };
+		816EC62D1F12765100F53882 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		816EC62F1F12774200F53882 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* ParseStarterProject-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParseStarterProject-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA814A1A49DA1800E65899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA814C1A49DA1800E65899 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,9 +118,8 @@
 				222D92E11F0BEFCC006E23B6 /* FavoritesViewController.swift */,
 				222D92E21F0BEFCC006E23B6 /* FeedTableTableViewController.swift */,
 				226AC7021F0BED54001AB47D /* FeedTableViewCell.swift */,
-				811843AF1F0346F90067CAE0 /* ProfileTableViewController.swift */,
-				811843B11F0348A70067CAE0 /* ProfileTableViewCell.swift */,
-				811843B31F0348BE0067CAE0 /* StoryTableViewCell.swift */,
+				816EC62F1F12774200F53882 /* ProfileViewController.swift */,
+				816EC62D1F12765100F53882 /* ProfileCollectionViewCell.swift */,
 				81D462C11F000F5B00EB0CF3 /* RegisterViewController.swift */,
 				81EE4DC01F007DB7005F208C /* PostViewController.swift */,
 				8158C3011F0997370047DD94 /* SecondPostViewController.swift */,
@@ -234,18 +231,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				222D92E41F0BEFCC006E23B6 /* FavoritesViewController.swift in Sources */,
-				811843B01F0346F90067CAE0 /* ProfileTableViewController.swift in Sources */,
-				811843B21F0348A70067CAE0 /* ProfileTableViewCell.swift in Sources */,
 				222D92E31F0BEFCC006E23B6 /* FavoritesCollectionViewCell.swift in Sources */,
 				8158C3021F0997370047DD94 /* SecondPostViewController.swift in Sources */,
+				816EC6301F12774200F53882 /* ProfileViewController.swift in Sources */,
 				81D462C21F000F5B00EB0CF3 /* RegisterViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				8158C3061F09A7210047DD94 /* FourthPostViewController.swift in Sources */,
+				816EC62E1F12765100F53882 /* ProfileCollectionViewCell.swift in Sources */,
 				81EE4DC11F007DB7005F208C /* PostViewController.swift in Sources */,
 				222D92E51F0BEFCC006E23B6 /* FeedTableTableViewController.swift in Sources */,
 				8158C3041F09A70E0047DD94 /* ThirdPostViewController.swift in Sources */,
-				811843B41F0348BE0067CAE0 /* StoryTableViewCell.swift in Sources */,
 				226AC7031F0BED54001AB47D /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
