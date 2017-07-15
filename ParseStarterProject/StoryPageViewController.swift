@@ -17,10 +17,21 @@ class StoryPageViewController: UIPageViewController, UIPageViewControllerDataSou
     lazy var viewControllerList: [UIViewController] = {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let story1 = sb.instantiateViewController(withIdentifier: "firstpage")
-        let story2 = sb.instantiateViewController(withIdentifier: "secondpage")
-        let story3 = sb.instantiateViewController(withIdentifier: "thirdpage")
-        let story4 = sb.instantiateViewController(withIdentifier: "fourthpage")
+        let story1 = sb.instantiateViewController(withIdentifier: "firstpage") as! Panel1VC
+            story1.postid = self.postid
+            story1.indexdata = self.indexdata
+        
+        let story2 = sb.instantiateViewController(withIdentifier: "secondpage") as! Panel2VC
+            story2.postid = self.postid
+            story2.indexdata = self.indexdata
+        
+        let story3 = sb.instantiateViewController(withIdentifier: "thirdpage") as! Panel3VC
+            story3.postid = self.postid
+            story3.indexdata = self.indexdata
+        
+        let story4 = sb.instantiateViewController(withIdentifier: "fourthpage") as! Panel4VC
+            story4.postid = self.postid
+            story4.indexdata = self.indexdata
         
         return [story1, story2, story3, story4]
         
@@ -35,7 +46,6 @@ class StoryPageViewController: UIPageViewController, UIPageViewControllerDataSou
         if let firstviewcontroller = viewControllerList.first {
             self.setViewControllers([firstviewcontroller], direction: .forward, animated: true, completion: nil)
         }
-        
         
     }
     

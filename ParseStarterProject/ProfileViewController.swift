@@ -149,6 +149,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             let pvc = segue.destination as! StoryPageViewController
             pvc.postid = self.postid
+            pvc.indexdata = self.indexdata
             print(indexdata)
             print(postid.count)
         }

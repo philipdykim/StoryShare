@@ -1107,6 +1107,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="storyImage" destination="7ac-Ma-hAq" id="f9m-cm-P2e"/>
+                        <outlet property="storyLabel" destination="3ax-2h-F23" id="3gq-K5-Kn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5by-rw-bAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1152,6 +1156,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="storyImage" destination="71M-Sm-zcU" id="fAR-C9-jTE"/>
+                        <outlet property="storyLabel" destination="gLi-M8-ouS" id="rUU-GJ-W2h"/>
+                        <outlet property="titleLabel" destination="lX2-ef-B9w" id="IrS-hz-JMm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZI-lR-XFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1197,6 +1206,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="storyImage" destination="Un7-iy-n2a" id="CZ9-QX-BgG"/>
+                        <outlet property="storyLabel" destination="6pf-9o-8Sx" id="grX-Wg-iWs"/>
+                        <outlet property="titleLabel" destination="eJE-ZS-MV6" id="T5j-Fb-TNW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eW-K0-pAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1242,6 +1256,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="storyImage" destination="RXn-hW-tm5" id="juJ-Q3-XNZ"/>
+                        <outlet property="storyLabel" destination="8dc-hq-iXK" id="3Gf-cg-l44"/>
+                        <outlet property="titleLabel" destination="aXM-1L-Kkd" id="cHM-dg-TP5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1g-On-u1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
