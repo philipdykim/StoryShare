@@ -119,20 +119,22 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        self.view.endEditing(true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        self.view.endEditing(true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text == nil || searchBar.text == "" {
             self.searchActive = false;
-            
             self.imageFiles.removeAll()
             self.messages.removeAll()
             self.searchCollectionView.reloadData()
+            self.view.endEditing(true)
             
         } else {
             
@@ -140,6 +142,10 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
             
         }
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) //This will hide the keyboard
     }
     
 }
