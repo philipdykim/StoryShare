@@ -18,7 +18,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
     var searchActive: Bool = false
     var messages = [String]()
     var imageFiles = [PFFile]()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,8 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
         self.searchBar.delegate = self
         self.searchBar.returnKeyType = UIReturnKeyType.done
         
-        var searchKey = searchBar.text as? String
-        search(searchText: searchKey)
+        //var searchKey = searchBar.text as? String
+        //search(searchText: searchKey)
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,11 +40,11 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
         
         let query = PFQuery(className: "Posts")
         
-        if(searchText != nil){
-            
-            query.whereKey("title", contains: searchText)
-            
-        }
+        
+        //Using containsString makes Parse query case sensitivel. Below query using matchesRegex enables case insensitive query.
+        
+        //query.whereKey("title", matchesRegex: searchText!, modifiers: "i")
+        query.whereKey("message", matchesRegex: searchText!, modifiers: "i")
         
         query.findObjectsInBackground { (objects, error) in
             
@@ -70,9 +70,8 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
                 
             }
             
-            
-            
         }
+        
     }
     
     
@@ -128,8 +127,19 @@ class SearchViewController: UIViewController,UICollectionViewDelegate, UICollect
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        //print("Searching again")
-        search(searchText: searchText)
+        if searchBar.text == nil || searchBar.text == "" {
+            self.searchActive = false;
+            
+            self.imageFiles.removeAll()
+            self.messages.removeAll()
+            self.searchCollectionView.reloadData()
+            
+        } else {
+            
+            self.search(searchText: searchText)
+            
+        }
+        
     }
     
 }
