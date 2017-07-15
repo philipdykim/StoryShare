@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var storyButton: UIButton!
+    
     @IBOutlet weak var postImage: UIImageView!
+    
 }
+
+

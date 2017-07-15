@@ -10,14 +10,16 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     var users = [String:String]()
     var username = String()
     var occupation = String()
     var postImage = [PFFile]()
     var messages = [String]()
+    var postid = [String]()
     
-
+    var indexdata = Int()
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     
@@ -29,7 +31,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         self.postCollection.delegate = self
         self.postCollection.dataSource = self
-
+        
         //query user info onto top of page
         
         let query = PFUser.query()
@@ -52,7 +54,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                             
                             self.userLabel.text = self.username
                             self.occupationLabel.text = self.occupation
-
+                            
                             
                         }
                         
@@ -81,18 +83,17 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                         self.postImage.append(object["imageFile"] as! PFFile)
                         
                         self.messages.append(object["message"] as! String) // get rid of messages for now
-                    
+                        
+                        self.postid.append(object["postid"] as! String)
+                        
                         self.postCollection.reloadData()
-                    
-                        print(self.messages)
                     }
                 }
             }
         })
         
-        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,6 +108,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "selfposts", for: indexPath) as! ProfileCollectionViewCell
         
         
+        cell.storyButton.tag = indexPath.row
+        cell.storyButton.addTarget(self, action: #selector(ProfileViewController.nextpage), for: .touchUpInside)
+        
         postImage[indexPath.row].getDataInBackground { (data, error) in
             
             if let imageData = data {
@@ -114,31 +118,40 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 if let downloadedImage = UIImage(data: imageData) {
                     
                     cell.postImage.image = downloadedImage
-                    
                 }
-                
             }
-            
         }
         
         cell.postImage.image = UIImage(named: "My-Story-Book-Maker-Icon.png")
+        
+        //need to integrate button into cell here and segue to next page with relevant data
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Selected row is", indexPath.row)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func nextpage(_ sender: UIButton) {
+        
+        self.indexdata = sender.tag
+        self.performSegue(withIdentifier: "tostory", sender: self)
+        
     }
-    */
-
+    
+    //review this entire function
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "tostory" {
+            
+            let pvc = segue.destination as! StoryPageViewController
+            pvc.postid = self.postid
+            print(indexdata)
+            print(postid.count)
+        }
+    }
+    
 }
