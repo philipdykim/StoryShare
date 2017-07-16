@@ -67,12 +67,16 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondcontroller = segue.destination as! SecondPostViewController
-        secondcontroller.firstmessage = storyTextview.text
-        secondcontroller.firstimage = postImage.image!
-        secondcontroller.storytitle = titleText.text!
+        if segue.identifier == "topagetwo" {
+        
+            let secondcontroller = segue.destination as! SecondPostViewController
+            secondcontroller.firstmessage = storyTextview.text
+            secondcontroller.firstimage = postImage.image!
+            secondcontroller.storytitle = titleText.text!
+            
+        }
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

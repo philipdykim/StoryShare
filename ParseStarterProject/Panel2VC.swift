@@ -36,11 +36,17 @@ class Panel2VC: UIViewController {
                     
                     if let post = object as? PFObject {
                         
-                        self.storyLabel.text =  object["message2"] as! String
+                        if let storylabel = object["message2"] as? String {
                         
-                        self.imagefile.append(object["imageFile2"] as! PFFile)
+                            self.storyLabel.text = storylabel
                         
-                        self.imagefile[0].getDataInBackground { (data, error) in
+                        }
+                        
+                        if let storyimage = object["imageFile2"] as? PFFile {
+                        
+                            self.imagefile.append(storyimage)
+                        
+                            self.imagefile[0].getDataInBackground { (data, error) in
                             
                             if let imageData = data {
                                 
@@ -49,15 +55,15 @@ class Panel2VC: UIViewController {
                                     self.storyImage.image = downloadedImage
                                 }
                             }
+                            }
                         }
-                        
                     }
                 }
             }
         })
+    }
         
         // Do any additional setup after loading the view.
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

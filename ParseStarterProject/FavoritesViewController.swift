@@ -21,6 +21,8 @@ class FavoritesViewController:  UIViewController, UICollectionViewDelegate, UICo
     var postID = [String]()
     var imageFiles = [PFFile]()
     var username = ""
+    var indexdata = Int()
+    var post_id = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,8 @@ class FavoritesViewController:  UIViewController, UICollectionViewDelegate, UICo
                             self.imageFiles.append(bookmarkedPost["imageFile"] as! PFFile)
                             
                             self.messages.append(bookmarkedPost["message"] as! String)
+
+                            self.post_id.append(object["postid"] as! String)
                             
                             self.FavoritesCollectionView.reloadData()
                             
@@ -88,13 +92,15 @@ class FavoritesViewController:  UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        return imageFiles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! FavoritesCollectionViewCell
         
+        cell.storyButton.tag = indexPath.row
+        cell.storyButton.addTarget(self, action: #selector(ProfileViewController.nextpage), for: .touchUpInside)
         
         imageFiles[indexPath.row].getDataInBackground { (data, error) in
             
@@ -119,14 +125,27 @@ class FavoritesViewController:  UIViewController, UICollectionViewDelegate, UICo
         print("Selected row is", indexPath.row)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //function for the button on image to perform segue and pass indexpath data
+    
+    func nextpage(_ sender: UIButton) {
+        
+        self.indexdata = sender.tag
+        self.performSegue(withIdentifier: "tostory1", sender: self)
+        
+    }
+    
+    // segue to pass indexpath data and postid data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "tostory1" {
+            
+            let pvc = segue.destination as! StoryPageViewController
+            pvc.postid.removeAll()
+            pvc.postid = self.post_id
+            pvc.indexdata = self.indexdata
+            print(indexdata)
+            print(post_id.count)
+        }
+    }
     
 }

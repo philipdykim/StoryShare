@@ -14,4 +14,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favoritesImageView: UIImageView!
 
+
+    @IBOutlet weak var storyButton: UIButton!
+
 }

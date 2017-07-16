@@ -82,7 +82,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                         
                         self.postImage.append(object["imageFile"] as! PFFile)
                         
-                        self.messages.append(object["message"] as! String) // get rid of messages for now
+                        self.messages.append(object["message"] as! String)
                         
                         self.postid.append(object["postid"] as! String)
                         
@@ -124,8 +124,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         cell.postImage.image = UIImage(named: "My-Story-Book-Maker-Icon.png")
         
-        //need to integrate button into cell here and segue to next page with relevant data
-        
         return cell
     }
     
@@ -134,6 +132,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
+    //function for the button on image to perform segue and pass indexpath data
+    
     func nextpage(_ sender: UIButton) {
         
         self.indexdata = sender.tag
@@ -141,13 +141,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    //review this entire function
-    
+    // segue to pass indexpath data and postid data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "tostory" {
             
             let pvc = segue.destination as! StoryPageViewController
+            pvc.postid.removeAll()
             pvc.postid = self.postid
             pvc.indexdata = self.indexdata
             print(indexdata)

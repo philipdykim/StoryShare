@@ -78,14 +78,19 @@ class ThirdPostViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let fourthcontroller = segue.destination as! FourthPostViewController
-        fourthcontroller.firstmessage = firstmessage
-        fourthcontroller.firstimage = firstimage
-        fourthcontroller.secondmessage = secondmessage
-        fourthcontroller.secondimage = secondimage
-        fourthcontroller.thirdmessage = storyTextview.text
-        fourthcontroller.thirdimage = postImage.image!
-        fourthcontroller.storytitle = storytitle
+        
+        if segue.identifier == "topagefour" {
+        
+            let fourthcontroller = segue.destination as! FourthPostViewController
+            fourthcontroller.firstmessage = firstmessage
+            fourthcontroller.firstimage = firstimage
+            fourthcontroller.secondmessage = secondmessage
+            fourthcontroller.secondimage = secondimage
+            fourthcontroller.thirdmessage = storyTextview.text
+            fourthcontroller.thirdimage = postImage.image!
+            fourthcontroller.storytitle = storytitle
+    
+        }
     }
     
     

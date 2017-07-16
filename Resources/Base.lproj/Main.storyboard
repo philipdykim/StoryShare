@@ -311,11 +311,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvW-Hc-iTX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <size key="customSize" width="90" height="90"/>
                                         <connections>
                                             <outlet property="favoritesImageView" destination="MGD-Lb-d5H" id="rth-wt-kFp"/>
+                                            <outlet property="storyButton" destination="mvW-Hc-iTX" id="0pP-Tr-cUc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -334,6 +339,7 @@
                     <connections>
                         <outlet property="FavoritesCollectionView" destination="2AX-sZ-aKv" id="2tA-5d-g3H"/>
                         <outlet property="usernameLabel" destination="69d-lc-ypN" id="tkz-2I-caH"/>
+                        <segue destination="GEh-p8-33d" kind="show" identifier="tostory1" id="ooY-LY-UJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2w-dG-Qt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1275,6 +1281,7 @@
         <segue reference="SGl-NW-06r"/>
         <segue reference="mkf-oW-WJ5"/>
         <segue reference="7M3-gw-LPK"/>
+        <segue reference="ooY-LY-UJA"/>
         <segue reference="YxG-TM-dHk"/>
         <segue reference="P0a-gz-1DT"/>
     </inferredMetricsTieBreakers>

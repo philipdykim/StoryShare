@@ -36,21 +36,27 @@ class Panel3VC: UIViewController {
                     
                     if let post = object as? PFObject {
                         
-                        self.storyLabel.text =  object["message3"] as! String
-                        
-                        self.imagefile.append(object["imageFile3"] as! PFFile)
-                        
-                        self.imagefile[0].getDataInBackground { (data, error) in
+                        if let storylabel = object["message3"] as? String {
                             
-                            if let imageData = data {
+                            self.storyLabel.text = storylabel
+                            
+                        }
+                        
+                        if let storyimage = object["imageFile3"] as? PFFile {
+                            
+                            self.imagefile.append(storyimage)
+                            
+                            self.imagefile[0].getDataInBackground { (data, error) in
                                 
-                                if let downloadedImage = UIImage(data: imageData) {
+                                if let imageData = data {
                                     
-                                    self.storyImage.image = downloadedImage
+                                    if let downloadedImage = UIImage(data: imageData) {
+                                        
+                                        self.storyImage.image = downloadedImage
+                                    }
                                 }
                             }
                         }
-                        
                     }
                 }
             }
